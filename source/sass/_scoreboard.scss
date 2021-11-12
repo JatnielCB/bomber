@@ -1,0 +1,25 @@
+#scoreboard
+    {
+    z-index:70;
+    transform: translatex(200%);
+    }
+
+#background
+    {
+    transform: translatex(200%);
+    z-index:100;
+    background:#000000ee;
+    }
+
+#submit-score
+    {
+    z-index: 200;
+    transform: translatex(400%);
+    color: #FFFFFF;
+    touch-action: manipulation;
+    position: fixed;
+    transition: 0.5s;
+    top:0px;
+    left:calc(50vw - 140px);
+    padding-top: 10px;
+    }

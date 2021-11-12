@@ -1,0 +1,55 @@
+#game
+    {
+    z-index: 30;
+    background: radial-gradient(circle,#EEE,#BBB);
+    transform: translateY(-200%);
+    overflow-y: auto;
+    padding-top:4vh;
+    }
+
+#bombs-grid
+    {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin: 2vh auto;
+    max-width: 600px;
+    justify-items: center;
+    background: rgb(41,59,255);
+    background: -moz-linear-gradient(0deg, rgba(41,59,255,1) 0%, rgba(41,166,255,1) 69%);
+    background: -webkit-linear-gradient(0deg, rgba(41,59,255,1) 0%, rgba(41,166,255,1) 69%);
+    background: linear-gradient(0deg, rgba(41,59,255,1) 0%, rgba(41,166,255,1) 69%);
+    padding:4px;
+    @include box-shadow(0px,10px,15px,2px, var(--color1));
+    user-select: none;
+    }
+
+[class*="bombs"]
+    {
+    touch-action: manipulation;
+    max-width: 100px;
+    }
+
+.bckgr-img
+    {
+    background-image: url("../img/explote.png");
+    }
+
+.bombs-upper
+    {
+    transform: scale(1.1,1.1);
+    background:#FF0000CC;
+    }
+
+    [class*="bombs-img"]
+    {
+    width: 100%;
+    }
+
+.explotion
+    {
+    animation-name: explotion;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    }

@@ -1,0 +1,62 @@
+:root
+    {
+    --color1:#29A6FF;
+    --color2:#FF8229;
+    }
+
+@import "mixins";
+
+html
+{
+    background: radial-gradient(circle,#EEE,#BBB);
+}
+body
+    {
+    background: radial-gradient(circle,#EEE,#BBB);
+    background-attachment: fixed;
+    width: 100%;
+    font-size: 15px;
+    overflow:hidden;
+    }
+
+#my-card h1
+    {
+    color:var(--color2);
+    }
+
+#my-card
+    {
+    margin: calc(40vh - 125px) auto;
+    width:300px;
+    padding: 10px;
+    border:1px solid var(--color1);
+    border-radius: 3px;
+    background:#FFFFFF99;
+    @include box-shadow(-1px,2px ,10px,0px, var(--color1) );
+    }
+
+.pages
+    {
+    touch-action: manipulation;
+    background: radial-gradient(circle,#EEE,#BBB);
+    position: fixed;
+    transition: 0.5s;
+    width: 100vw;
+    height: 100vh;
+    top:0;
+    left:0;
+    overflow-y: auto;
+    padding-top: 10px;
+    }
+
+    @import "game","info","settings","scoreboard";
+
+    @media(max-height:360px)
+    {
+    
+    #my-card
+        {
+        margin: 40px auto;
+        }
+
+    }
