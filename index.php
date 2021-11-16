@@ -1,3 +1,6 @@
+<!--Dactyl web version 1.0.0-->
+<!--This is just a Project-->
+<!--Visit my web page for more info jbproyects.sytes.net-->
 <?php
 header('Access-Control-Allow-Origin: *'); 
 ?>
@@ -42,7 +45,6 @@ header('Access-Control-Allow-Origin: *');
     <div class="row">
         <div class="col-12 text-center">
             <button class="btn btn-success m-auto scoreboard-btn mt-1" >Score: <span id="score">0</span></button>
-            <button class="btn btn-info settings-btn mt-1">Settings</button>
             <button id="back" class="btn btn-danger mt-1" >back</button>
             <button id="restart" class="btn btn-primary mt-1" >start</button>
             
@@ -77,16 +79,24 @@ header('Access-Control-Allow-Origin: *');
 </div>
 
 <!------------------------submit score form and background-------------------------->
-<div id="background" class="container-fluid pages "></div>
+<div id="background" class="container-fluid pages"></div>
 
 <div id="submit-score" class="text-center">
+
   <div class="w-100 bg-dark p-2">
-    <button id="exit-submit" class="btn btn-danger mt-1 float-left" >back</button>
+
+    <div class="my-1 d-flex justify-content-between">
+      <p id="btn btn-success" class="btn btn-success m-0  text-center" >Score:<span class="score-in-submit"></span></p>
+      <button id="exit-submit" class="btn btn-danger " >back</button>
+    </div>
+
+    <img id="scoreImg" src="source/img/kpro.jpeg" alt="Pro?">
+    <p id="scoreImgText" class="m-0">Superaste 250 puntos</p>
     <h3 class="my-4">Submit Your Score</h3>
-      <form class="m-4 mt-0 d-flex flex-column justify-content-center">
-        <input id="name-submit" type="text" name="user" placeholder="Name">
-        <button id="submit-btn" class="btn btn-success mt-3" type="button" >Submit</button>
-      </form>
+    <form class="m-4 mt-0 d-flex flex-column justify-content-center">
+      <input id="name-submit" type="text" name="user" placeholder="Name">
+      <button id="submit-btn" class="btn btn-success mt-3" type="button" >Submit</button>
+    </form>
   </div>
 </div>
 
@@ -162,12 +172,6 @@ header('Access-Control-Allow-Origin: *');
   </div>
 </div>
 
-<!-----------------------------------settings menu---------------------------------->
-<div id="settings" class="container-fluid pages">
-    <button class="btn btn-danger exit-page">Back</button>
-    <h2 class="text-center">Settings</h2>
-</div>
-
 <!----------------------------------scoreboard menu--------------------------------->
 <div id="scoreboard" class="container-fluid text-center pages pb-5">
     <div class="col-12 col-sm-10 col-md-8 m-auto pb-5">
@@ -182,7 +186,8 @@ header('Access-Control-Allow-Origin: *');
         include("source/php_stuff/connection.php");
         $dataArray=connectAndSend("SELECT * FROM scoreboard ORDER BY points DESC");
         $numberLimit=count($dataArray);
-        echo "<script>let high=['";echo $dataArray[0][0]; echo"']";echo"[";echo $dataArray[0][1]; echo"] </script>";
+        //This send the hieghest score and the name
+        echo "<script>let highScore={ name:'";echo $dataArray[0][0]; echo"',";echo" score:";echo $dataArray[0][1]; echo"} </script>";
         if(count($dataArray)>15)$numberLimit=15;
         ?>
         <thead>

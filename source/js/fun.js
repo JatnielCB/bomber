@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    console.log(high[0])
+    
 /*Main Game Variables*/
-let gameInterval, randomNumber, bombs=document.getElementsByClassName('bombs'), score=0;
+let gameInterval, randomNumber, bombs=document.getElementsByClassName('bombs'), score;
 let skip=[], noRepeat=[];
 let page;
 let name="";
@@ -42,7 +42,6 @@ let song=2, music=document.getElementById("music");
     {
         if(trueFalse)
         {
-        $(".settings-btn").click(function (){visiblePage(true,"#settings")});
         $(".scoreboard-btn").click(function (){$("#table-to-load").load(location.href+" #table-to-load>*","");visiblePage(true,"#scoreboard")});
         $('#back').click(()=>$("#game").removeClass("move-visible")); 
         $("#restart").click(function()
@@ -53,7 +52,6 @@ let song=2, music=document.getElementById("music");
         }
         else{
         $(".scoreboard-btn").off();
-        $(".settings-btn").off();
         $('#restart').off();
         $('#back').off();
         }
@@ -101,7 +99,7 @@ let song=2, music=document.getElementById("music");
     const updateScore=(number)=>
         {
         $("#score").text(number);
-        if(number==500)return speed-=30;/*Speed at 100ms*/
+        if(number==400)return speed-=30;/*Speed at 100ms*/
         if(number==250)return speed-=30;/*Speed at 150ms*/
         if(number==180)return speed-=50;/*Speed at 200ms*/
         if(number>150)return;/*Speed at 230ms*/
@@ -119,13 +117,13 @@ let song=2, music=document.getElementById("music");
     //End Game Function
     function endGame(i)
         {
-        activeBombsControls(false)
         clearInterval(gameInterval);
-        enableButtons(true);
+        activeBombsControls(false)
         $(bombs[i]).children().attr("src", "source/img/explote.png");
         $(bombs[i]).attr("class","bombs explotion");
         setTimeout((score)=>
                             {
+                            enableButtons(true);
                             uploadScore(score)
                             skip=[];
                             },500);
@@ -235,13 +233,15 @@ let song=2, music=document.getElementById("music");
 
     //-Submit Score buttons
     $("#exit-submit").click(()=>exitScoreSendPage());
-    $("#background").dblclick(()=>exitScoreSendPage());
+    $("#background").click(()=>exitScoreSendPage());
 
     //-When the game ends, show modal for submit score
     function uploadScore()
         {
-        $("#submit-score").addClass("move-visible");
-        return $("#background").addClass("move-visible");
+        setImage(score);
+        $(".score-in-submit").text(score);
+        $("#background").addClass("move-visible");
+        return $("#submit-score").addClass("move-visible");
         }
 
     //-Ajax function
@@ -268,6 +268,27 @@ let song=2, music=document.getElementById("music");
         
     })
 
+    function setImage(score)
+    {
+    if(score>highScore.score) return sendImage("felicidades.gif","Acabas de superar a "+highScore.name+". Felicidades!");
+    if(score<50)return sendImage("nuv.jpeg",score+" puntos, k nuv");
+    if(score<100)return sendImage("nimodo.jpeg",score+" puntos, eres seminuv equisdee");
+    if(score<150)return sendImage("xd.jpeg","Te ganaste una Rei chikita xd");
+    if(score<180)return sendImage("ouyea.jpeg","ouyea");
+    if(score<200)return sendImage("juan.jpg","JUAN");
+    if(score<250)return sendImage("juanp.jpg",score+" [Semipro]");
+    if(score<300)return sendImage("juanpremium.jpeg","Alcanza los 300 puntos y seras PRO");
+    if(score<330)return sendImage("kpro.jpeg","ke pro");
+    if(score<400)return sendImage("khacker.jpeg","Ke hAcKEr");
+    if(score>=400)return sendImage("kprohd.jpg","Ke pro HD");
+    function sendImage(image,text)
+    {
+     $("#scoreImg").attr("src","source/img/"+image);
+     $("#scoreImgText").text(text);
+    }
+
+    }
+
 //###############################################################//
 //#######################-MUSIC FUNCTIONS-#######################//
 
@@ -282,5 +303,6 @@ function changeSong(x)
     };
 $("#left-arrow").click(()=>changeSong(-1));
 $("#right-arrow").click(()=>changeSong(1));
-
+console.log(highScore.score);
+console.log(highScore.name);
 });

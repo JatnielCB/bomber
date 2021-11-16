@@ -14,7 +14,7 @@
 #submit-score
     {
     z-index: 200;
-    transform: translatex(400%);
+    transform: translatex(500%);
     color: #FFFFFF;
     touch-action: manipulation;
     position: fixed;
@@ -22,4 +22,20 @@
     top:0px;
     left:calc(50vw - 140px);
     padding-top: 10px;
+    }
+
+#submit-score img
+    {   
+    max-width: 150px;
+    }
+
+@media screen and (max-width:567px) 
+    {
+
+    #submit-score
+        {
+        width:100vw;
+        left:0;
+        }
+
     }
