@@ -1,5 +1,5 @@
 <?php
-function connect() {return mysqli_connect("localhost","root","","dactyl");}
+function connect() {return mysqli_connect("","","","");}
 
 function justSend($query){return mysqli_query(connect(),$query);}
 function connectAndSend($query)

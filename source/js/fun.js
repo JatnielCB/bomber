@@ -9,7 +9,7 @@ let name="";
 let speed=500, limit=20;
 
 /*Music variables*/
-let song=2, music=document.getElementById("music");
+let song=1, music=document.getElementById("music");
 
 //##########################################################//
 //##################-MAIN MENU BUTTONS######################//
@@ -297,8 +297,8 @@ music.onended=()=>changeSong(1);
 function changeSong(x)
     {
     song+=x;
-    if(song<1)song=2; 
-    if(song>2)song=1;   
+    if(song<1)song=4; 
+    if(song>4)song=1;   
     music.setAttribute("src","source/audio/song"+song+".mp3");
     music.play();
     };

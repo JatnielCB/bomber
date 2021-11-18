@@ -1,5 +1,4 @@
-<!--Dactyl web version 1.1.0-->
-<!--Speed fix-->
+<!--Dactyl web version 1.1.1-->
 <!--This is just a Project-->
 <!--Visit my web page for more info jbproyects.sytes.net-->
 <?php
@@ -73,7 +72,7 @@ header('Access-Control-Allow-Origin: *');
     <div class="row">
         <div id="game-footer" class="col-12 text-center mt-3  align-content-center justify-content-center display-none">
             <button id="left-arrow" class="btn btn-secondary">&lt;</button>
-            <audio id="music" class="" src="source/audio/song2.mp3"controls></audio>
+            <audio id="music" class="" src="source/audio/song1.mp3"controls></audio>
             <button id="right-arrow" class="btn btn-secondary">&gt;</button>
         </div>
     </div>
@@ -145,12 +144,13 @@ header('Access-Control-Allow-Origin: *');
             <article id="info-item-2" class="accordion-collapse collapse" aria-labelledby="info-header-2" data-bs-parent="#info-accordion">
               <div class="accordion-body">
                 <strong>Mobile browsers can't have dynamic audio efects</strong><br>
-                <p>blablabla</p>
-                <strong class="mb-1">This are the songs</strong>
+                <p>So, i put some music in the game (copyright to the authors)</p>
+                <strong class="mb-1">This are the main game songs</strong>
                 <ul>
-                    <li>Come Sweet death<span class="ms-3">-Evangelion Finally</span></li>
-                    <li>MEGALOVANIA<span class="ms-3">-UNDERTALE soundtrack</span></li>
-                    <li>One Final Effort<span class="ms-3">-Halo 3 (Original Soundtrack)</span></li>
+                    <li>Come Sweet death<span class="ms-3">- Evangelion Finally</span></li>
+                    <li>MEGALOVANIA<span class="ms-3">- UNDERTALE soundtrack</span></li>
+                    <li>Pursuit Of Happiness<span class="ms-3">- Project X</span></li>
+                    <li>Intro<span class="ms-3">- C418 Minecraft Volume Beta</span></li>
                 </ul>
               </div>
             </article>
@@ -159,7 +159,7 @@ header('Access-Control-Allow-Origin: *');
           <div class="accordion-item">
             <h3 class="accordion-header" id="info-header-3">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#info-item-3" aria-expanded="false" aria-controls="info-item-3">
-              More Info
+              Credits
               </button>
             </h3>
             <div id="info-item-3" class="accordion-collapse collapse" aria-labelledby="info-header-3" data-bs-parent="#info-accordion" >
