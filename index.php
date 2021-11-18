@@ -1,4 +1,5 @@
-<!--Dactyl web version 1.0.0-->
+<!--Dactyl web version 1.1.0-->
+<!--Speed fix-->
 <!--This is just a Project-->
 <!--Visit my web page for more info jbproyects.sytes.net-->
 <?php

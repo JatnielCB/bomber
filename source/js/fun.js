@@ -99,18 +99,19 @@ let song=2, music=document.getElementById("music");
     const updateScore=(number)=>
         {
         $("#score").text(number);
-        if(number==400)return speed-=30;/*Speed at 100ms*/
-        if(number==250)return speed-=30;/*Speed at 150ms*/
-        if(number==180)return speed-=50;/*Speed at 200ms*/
-        if(number>150)return;/*Speed at 230ms*/
-        if(number==105)return speed-=50;/*Speed at 230ms*/
-        if(number==80)return speed-=50;/*Speed at 320ms*/
-        if(number===30)return speed-=50;/*Speed at 410ms*/  
-        if(number==limit)  /*This "if" sentence subtract 20ms to the speed variable every 20 points till 140 */
-            {
-            speed-=20;
-            limit+=20;
-            }
+        if(number==500)return speed-=30;// Speed at 200
+        if(number==400)return speed-=30;// Speed at 230
+        if(number==300)return speed-=30;// Speed at 260
+
+        if(number==250)return speed-=10;// Speed at 290
+
+        if(number==200)return speed-=30;// Speed at 300
+        
+        if(number==150)return speed-=20;// Speed at 330
+
+        if(number==100) return speed-=50;/*Speed at 350ms*/
+        if(number==50) return speed-=50;/*Speed at 400ms*/
+        if(number===20) return speed-=50;/*Speed at 450ms*/  
         if(number==0) return speed=500;
         }
 
@@ -201,7 +202,7 @@ let song=2, music=document.getElementById("music");
         score+=1;
         updateScore(score);
         }
-        else endGame(i); 
+        else endGame(i);
         }
 
 //##########################################################//
@@ -303,6 +304,4 @@ function changeSong(x)
     };
 $("#left-arrow").click(()=>changeSong(-1));
 $("#right-arrow").click(()=>changeSong(1));
-console.log(highScore.score);
-console.log(highScore.name);
 });
